@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+
+        span {
+            color: red;
+            display: none;
+        }
+
+        .menu {
+            width: 100px;
+            background-color: azure;
+            box-shadow: 5px 5px tomato;
+            display: none;
+        }
+
+        .menu a {
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mimenu" class="menu">
+        <a href="">Opcion 1</a>
+        <a href="">Opcion 2</a>
+        <a href="">Opcion 3</a>
+
+    </div>
+    <input type="submit" onclick="return despliegaMenu()" value="Mandar" />
+    <form onsubmit="return validar()" id="forma" action="http://www.google.com">
+        <input type="text" name="user" />
+        <span id="errUsuario">El usuario es requerido.</span>
+        <br>
+        <input type="submit" value="Mandar" />
+    </form>
+    <div id="parrafo1">JGTFH</div>
+    <p id="parrafo2">Parrafo 2</p>
+    <img id="imagen1" src="" />
+    <button onmouseover="document.getElementById('parrafo1').style.color='red'"> Hacer Click para cambios</button>
+
+    <table id="mitabla">
+
+    </table>
+
+    <button onclick="agregarFila()">Agregar Fila <button onclick="eliminarFila()">X</button></button>
+    <button onclick="verTam()">Boton</button>
+    <video width="300" controls autoplay muted>
+        <source type="video/mp4" src="http://thinkingform.com/wp-content/uploads/2017/09/video-sample-mp4.mp4" >
+     </video>     
+     <canvas id = "micanvas" width = "600" height = "600" style = "border:1px solid black;"></canvas>
+    <audio>
+        
+    </audio>
+    <script>
+
+        var area2d = document.getElementById("micanvas").getContext("2d");
+        area2d.moveTo(250, 250);
+
+        area2d.lineTo(480, 80)
+        area2d.stroke()
+        function verTam() {
+            alert(screen.width)
+            alert(window.location.hostname)
+            window.history.forward();
+        }
+
+        function validar() {
+            var caja = document.getElementById("forma").elements.namedItem("user").value;
+            var mensaje = document.getElementById("errUsuario");
+            if (caja == "") {
+                mensaje.style.display = "inline"
+                caja.usuario.focus();
+                return false;
+            } else {
+                return true;
+            }
+
+        }
+
+        function despliegaMenu() {
+            document.getElementById("mimenu").style.display = "inline";
+        }
+        function agregarFila() {
+            var tabla = document.getElementById("mitabla");
+            var fila = tabla.insertRow(0);
+            fila.insertCell(0).innerHTML = "1";
+            fila.insertCell(1).innerHTML = "2";
+        }
+
+        function eliminarFila() {
+            var tabla = document.getElementById("mitabla").deleteRow(0);
+        }
+
+        var v1 = document.getElementById("parrafo1")
+        v1.innerText = "Texto cambiado"
+        document.getElementById("imagen1").src = "file:///C:/Users/Artur/Desktop/Captura%20de%20pantalla%202022-10-21%20215728.png"
+
+        var enc1 = document.createElement("h1")
+        enc1.innerHTML = "Encabezao Nivel 1"
+
+        document.body.appendChild(enc1);
+
+        document.getElementById("parrafo2").style.color = "blue"
+    </script>
+</body>
+
+</html>
